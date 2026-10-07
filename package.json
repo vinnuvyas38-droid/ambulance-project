@@ -1,0 +1,26 @@
+{
+  "name": "ai-emergency-green-corridor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Emergency Green Corridor - Smart-City Traffic Simulation & Control Platform",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=client",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "dev:all": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "npm run build --workspace=shared && npm run build --workspace=server && npm run build --workspace=client",
+    "typecheck": "npm run typecheck --workspace=shared && npm run typecheck --workspace=server && npm run typecheck --workspace=client",
+    "test": "npm run test --workspace=server",
+    "lint": "npm run typecheck"
+  },
+  "devDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.64.0",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  }
+}
